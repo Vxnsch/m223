@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "M223" %></title>
+    <title><%= content_for(:title) || "4RCHIVE | m223" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="application-name" content="M223">
@@ -24,6 +24,37 @@
   </head>
 
   <body>
+    <%= image_tag "pirate-skull.jpg", class: "corner-skull corner-skull--top-right",
+          alt: "", aria: { hidden: true } %>
+    <%= image_tag "pirate-skull.jpg", class: "corner-skull corner-skull--bottom-left",
+          alt: "", aria: { hidden: true } %>
+
+    <header>
+      <% if current_user %>
+        <%= link_to "Archive", pages_path %>
+        <%= link_to "Profile", profile_path %>
+
+        <% if current_user.admin? %>
+          <%= link_to "User management", admin_users_path %>
+          <%= link_to "Activity log", admin_activity_logs_path %>
+        <% end %>
+
+        <span>
+          Signed in as <%= current_user.email %>
+          (<%= current_user.role %>)
+        </span>
+
+        <%= button_to "Log out", logout_path, method: :delete %>
+      <% else %>
+        <%= link_to "Log in", login_path %>
+        <%= link_to "Register", new_user_path %>
+      <% end %>
+    </header>
+
+    <% flash.each do |type, message| %>
+      <p><%= message %></p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

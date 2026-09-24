@@ -1,0 +1,15 @@
+<% content_for :title, "4RCHIVE | User management" %>
+
+<h1>User management</h1>
+
+<% @users.each do |user| %>
+  <section>
+    <p><%= user.email %></p>
+
+    <%= form_with model: [:admin, user] do |form| %>
+      <%= form.label :role %>
+      <%= form.select :role, User::ROLES %>
+      <%= form.submit "Update role" %>
+    <% end %>
+  </section>
+<% end %>

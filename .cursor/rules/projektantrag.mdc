@@ -1,0 +1,27 @@
+---
+description: Projektantrag schreiben oder prüfen — Pflichtinhalte, Lücken erfragen
+alwaysApply: false
+---
+
+Vergleiche meinen Antrag mit dieser Liste. Zu jeder Lücke oder schwachen Stelle
+stell mir eine gezielte Frage, statt sie selbst zu füllen.
+
+1. Problemstellung aus meinem Alltag: Problem, Relevanz, Häufigkeit
+2. Domäne, Name der Applikation, Vision
+3. 1. MVP-Iteration: wichtigste fachliche Anforderung + alle nötigen Multi-User-Aspekte
+4. Mind. 6 funktionale Anforderungen, priorisiert
+5. Mind. 4 Qualitätsattribute, priorisiert, **messbar und domänenspezifisch**
+   («sicher», «benutzerfreundlich», «99,9 % Uptime» reichen nicht).
+   Gut: «Bei zwei gleichzeitigen Reservierungen des letzten freien Platzes wird genau eine bestätigt.»
+6. Mind. 2 Benutzerrollen mit unterschiedlichen Berechtigungen
+7. Locking und Transaktionen: welche Funktionen, warum
+8. ERM
+9. Breadboards aller User-Flows der 1. Iteration
+10. Fat-Marker-Sketches aller Screens der 1. Iteration
+
+Prüfe auch: Die Kernfunktion ist ein ganzer fachlicher Ablauf mit Fachregel und
+Fehlerfall (nicht nur Login/CRUD), mehrere Benutzer arbeiten gleichzeitig, kein
+Nachbau (Todo, Chat, Jira), kein technisches Problem.
+
+Breadboards im `text`-Block: `@Place`, darunter `  - Element`, darunter
+`    -> @Ziel` (auch `Erfolg -> @Ziel` / `Fehler -> @Ziel`).

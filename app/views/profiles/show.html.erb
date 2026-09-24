@@ -1,0 +1,8 @@
+<% content_for :title, "4RCHIVE | Profile" %>
+
+<h1>Profile</h1>
+
+<p>Email: <%= @user.email %></p>
+<p>Role: <%= @user.role %></p>
+
+<%= link_to "Edit profile", edit_profile_path %>

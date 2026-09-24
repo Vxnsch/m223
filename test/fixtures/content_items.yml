@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  page: one
+  content_type: description
+  text: The Air Jordan 1 was first released in 1985.
+  url: https://www.ebay.ch/sch/i.html?_nkw=Air+Jordan+1&_sacat=0&_from=R40&_trksid=p4624852.m570.l1313
+  datetime: 2026-09-21 14:17:50
+
+two:
+  page: two
+  content_type: MyString
+  text: MyText
+  url: MyString
+  datetime: 2026-09-21 14:17:50

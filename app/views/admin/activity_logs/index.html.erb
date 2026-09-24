@@ -1,0 +1,26 @@
+<% content_for :title, "4RCHIVE | Activity log" %>
+
+<h1>Activity log</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>User</th>
+      <th>Action</th>
+      <th>Subject</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @activity_logs.each do |activity_log| %>
+      <tr>
+        <td><%= activity_log.created_at.to_fs(:long) %></td>
+        <td><%= activity_log.user.email %></td>
+        <td><%= activity_log.action %></td>
+        <td><%= [activity_log.subject_type, activity_log.subject_id].compact.join(" #") %></td>
+        <td><%= activity_log.details %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

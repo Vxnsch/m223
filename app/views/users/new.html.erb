@@ -1,0 +1,48 @@
+<% content_for :title, "4RCHIVE | Registration" %>
+
+<h1>Create an account</h1>
+
+<%= form_with model: @user do |form| %>
+  <% if @user.errors.of_kind?(:email, :taken) %>
+    <p>
+      This email is already registered.
+      <%= link_to "Log in instead", login_path %>
+    </p>
+  <% end %>
+
+  <% if @user.errors.of_kind?(:password_confirmation, :confirmation) %>
+    <p>Passwords aren't matching.</p>
+  <% end %>
+
+  <% @user.errors.each do |error| %>
+    <% next if error.attribute == :email && error.type == :taken %>
+    <% next if error.attribute == :password_confirmation && error.type == :confirmation %>
+    <p><%= error.full_message %></p>
+  <% end %>
+
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div>
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
+  </div>
+
+  <div>
+    <%= form.submit "Register" %>
+  </div>
+<% end %>
+
+<p>
+
+Already a Member?
+<%= link_to "Log in", login_path %>
+        
+</p>

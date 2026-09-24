@@ -1,0 +1,15 @@
+<% content_for :title, "4RCHIVE | Edit profile" %>
+
+<h1>Edit profile</h1>
+
+<% @user.errors.full_messages.each do |message| %>
+  <p><%= message %></p>
+<% end %>
+
+<%= form_with model: @user, url: profile_path do |form| %>
+  <%= form.label :email %>
+  <%= form.email_field :email, required: true %>
+  <%= form.submit "Update profile" %>
+<% end %>
+
+<%= link_to "Back to profile", profile_path %>

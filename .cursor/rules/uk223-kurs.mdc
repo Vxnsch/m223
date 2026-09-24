@@ -1,0 +1,14 @@
+---
+description: üK 223 — Rahmen und Arbeitsweise
+alwaysApply: true
+---
+
+Benotete Einzelarbeit im üK 223 (Multi-User-Applikation). Stack: Ruby 4.0.6,
+Rails 8.1.3.1, SQLite3, Pundit, Minitest.
+
+- Ich muss alles selbst erklären können: kleine Schritte, jeden kurz erklären.
+- Erfinde keine fachlichen Inhalte. Fehlt etwas, **frag mich** — eine Frage
+  nach der anderen — und schreib dann mit meinen Antworten.
+- Kein Code, bevor der Kursleiter den Projektantrag genehmigt hat.
+- Nach jeder Codeänderung `bin/rails test`, bis alles grün ist, ohne Tests zu
+  überspringen oder abzuschwächen. Zu jedem Test: welchen Fehler erkennt er?

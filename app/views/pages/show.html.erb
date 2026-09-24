@@ -1,0 +1,26 @@
+<% content_for :title, "4RCHIVE | #{@page.title}" %>
+
+<h1><%= @page.title %></h1>
+
+<% if @page.image.attached? %>
+  <%= image_tag @page.image, alt: @page.title %>
+<% end %>
+
+<% @page.content_items.each do |item| %>
+  <p><%= item.text %></p>
+
+  <% if item.datetime.present? %>
+    <p>Release date: <%= item.datetime.to_date.to_fs(:long) %></p>
+  <% end %>
+
+  <% if item.url.present? %>
+    <p><%= link_to "Open source or shop", item.url, target: "_blank", rel: "noopener" %></p>
+  <% end %>
+<% end %>
+
+<p><%= link_to "Back to archive", pages_path %></p>
+
+<% if policy(@page).destroy? %>
+  <%= button_to "Delete archive page", page_path(@page), method: :delete,
+        data: { turbo_confirm: "Delete this archive page?" } %>
+<% end %>

@@ -8,3 +8,285 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+:root {
+  color-scheme: dark;
+  font-family: "Helvetica Neue", "Arial Narrow", Arial, sans-serif;
+  color: #f5f5f5;
+  background: #050505;
+  --ink: #f5f5f5;
+  --paper: #050505;
+  --muted: #a0a0a0;
+  --panel: #141414;
+  --field: #090909;
+}
+
+body {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  line-height: 1.5;
+  background: var(--paper);
+}
+
+::selection {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+header::before {
+  margin-right: 0.75rem;
+  color: var(--ink);
+  font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  content: "☠ 4RCHIVE";
+}
+
+.corner-skull {
+  position: fixed;
+  z-index: 0;
+  width: clamp(170px, 22vw, 300px);
+  height: auto;
+  opacity: 0.16;
+  pointer-events: none;
+  user-select: none;
+}
+
+.corner-skull--top-right {
+  top: -2.5rem;
+  right: -2rem;
+  transform: rotate(8deg);
+}
+
+.corner-skull--bottom-left {
+  bottom: -3rem;
+  left: -2rem;
+  transform: rotate(-10deg);
+}
+
+body > :not(.corner-skull) {
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  margin: 3rem 0 1.5rem;
+  color: var(--ink);
+  font-size: clamp(2.75rem, 8vw, 5.25rem);
+  font-weight: 900;
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.login-title {
+  display: inline-block;
+  font-family: "Old English Text MT", "UnifrakturCook", Georgia, serif;
+  font-size: clamp(3.5rem, 11vw, 7rem);
+  font-style: normal;
+  letter-spacing: 0.02em;
+  line-height: 0.9;
+  text-transform: none;
+  transform: rotate(-1deg);
+}
+
+h2,
+h3,
+label,
+th {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+a {
+  color: var(--ink);
+  text-decoration-color: var(--muted);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+}
+
+a:hover {
+  color: var(--ink);
+  text-decoration-thickness: 2px;
+}
+
+header a {
+  padding: 0.35rem 0.5rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+header a:hover {
+  color: var(--ink);
+  background: var(--panel);
+}
+
+header span {
+  margin-left: auto;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+form {
+  margin: 1rem 0;
+  padding: 0;
+}
+
+header form {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+form div {
+  margin-bottom: 1rem;
+}
+
+input,
+textarea,
+select,
+button {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  color: var(--ink);
+  background: var(--field);
+  font: inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+button,
+input[type="submit"] {
+  border-color: var(--ink);
+  color: var(--ink);
+  background: transparent;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  color: var(--ink);
+  background: var(--panel);
+}
+
+textarea {
+  width: 100%;
+  min-height: 8rem;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  min-height: 7rem;
+  background: var(--panel);
+}
+
+li:hover {
+  background: #202020;
+}
+
+li a {
+  display: flex;
+  box-sizing: border-box;
+  align-items: flex-end;
+  width: 100%;
+  min-height: 7rem;
+  padding: 1rem;
+  font-size: 1.4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent;
+}
+
+th,
+td {
+  padding: 0.75rem;
+  text-align: left;
+}
+
+th {
+  background: var(--panel);
+}
+
+section {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: var(--panel);
+}
+
+.field_with_errors {
+  display: inline;
+  color: #861b1b;
+}
+
+body > p {
+  max-width: 70ch;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 0.75rem;
+  }
+
+  header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  header span {
+    margin-left: 0;
+  }
+
+  h1 {
+    margin-top: 2rem;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}
